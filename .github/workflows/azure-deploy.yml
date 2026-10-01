@@ -30,6 +30,15 @@ jobs:
         run: |
           docker push rahulregistry.azurecr.io/rahul-containerapp:latest
 
+      - name: Configure ACR credentials for Container App
+        run: |
+          az containerapp registry set \
+            --name rahul-containerapp \
+            --resource-group Rahul6.1 \
+            --server rahulregistry.azurecr.io \
+            --username "${{ secrets.ACR_USERNAME }}" \
+            --password "${{ secrets.ACR_PASSWORD }}"
+
       - name: Deploy to Azure Container App
         run: |
           az containerapp update \
