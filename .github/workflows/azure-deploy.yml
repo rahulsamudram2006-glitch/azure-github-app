@@ -22,7 +22,7 @@ jobs:
         uses: azure/container-apps-deploy-action@v1
         with:
           appSourcePath: ${{ github.workspace }}
-          acrName: YOUR_REGISTRY_NAME
+          acrName: rahulregistry
           containerAppName: rahul-containerapp
           resourceGroup: Rahul6.1
           registryUsername: ${{ secrets.ACR_USERNAME }}
